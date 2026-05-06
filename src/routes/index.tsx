@@ -44,12 +44,57 @@ const formSchema = z.object({
     .max(25, "Phone number too long"),
 });
 
+function Professor() {
+  return (
+    <section className="bg-background py-24">
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2 md:items-center">
+        <div className="relative">
+          <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-gold/30 to-navy/20 blur-2xl" />
+          <img
+            src={professor}
+            alt="Professor Henrique Cezar, CFA"
+            className="relative w-full rounded-2xl object-cover shadow-elegant"
+          />
+        </div>
+        <div>
+          <div className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
+            Lead Instructor
+          </div>
+          <h2 className="mt-3 font-display text-3xl font-bold text-navy md:text-4xl">
+            Professor Henrique Cezar, <span className="text-gold">CFA®</span>
+          </h2>
+          <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+            With over two decades preparing analysts and portfolio managers for
+            the CFA Program, Professor Henrique Cezar has built a reputation for
+            translating dense curriculum content into a precise, exam-winning
+            framework — the same framework that drives our 80%+ first-attempt
+            pass rate.
+          </p>
+          <ul className="mt-8 space-y-3 text-sm">
+            {[
+              "20+ years of CFA exam preparation experience",
+              "Trained candidates across global investment banks",
+              "Architect of the HC Certify methodology",
+            ].map((t) => (
+              <li key={t} className="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
+                <span className="text-foreground/90">{t}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function LandingPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       <Hero />
       <Methodology />
+      <Professor />
       <Pillars />
       <PassRateChart />
       <Offer />
