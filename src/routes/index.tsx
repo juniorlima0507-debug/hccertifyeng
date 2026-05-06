@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Master the CFA® Level 1 with an official prep provider. 80%+ first-attempt pass rate, led by Professor Henrique Cezar.",
+          "Master the CFA® Level 1 with an official prep provider. 80%+ first-attempt pass rate, led by Teacher Henrique Cezar.",
       },
       { property: "og:title", content: "HC Certify — CFA® Level 1 Elite Preparation" },
       {
@@ -52,7 +52,7 @@ function Professor() {
           <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-gold/30 to-navy/20 blur-2xl" />
           <img
             src={professor}
-            alt="Professor Henrique Cezar, CFA"
+            alt="Teacher Henrique Cezar, CFA"
             className="relative w-full rounded-2xl object-cover shadow-elegant"
           />
         </div>
@@ -61,11 +61,11 @@ function Professor() {
             Lead Instructor
           </div>
           <h2 className="mt-3 font-display text-3xl font-bold text-navy md:text-4xl">
-            Professor Henrique Cezar, <span className="text-gold">CFA®</span>
+            Teacher Henrique Cezar, <span className="text-gold">CFA®</span>
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground">
             With over two decades preparing analysts and portfolio managers for
-            the CFA Program, Professor Henrique Cezar has built a reputation for
+            the CFA Program, Teacher Henrique Cezar has built a reputation for
             translating dense curriculum content into a precise, exam-winning
             framework — the same framework that drives our 80%+ first-attempt
             pass rate.
@@ -194,7 +194,7 @@ function Methodology() {
     {
       icon: GraduationCap,
       title: "Expert Leadership",
-      body: "Led by Professor Henrique Cezar, a recognized authority with over two decades of experience in CFA exam preparation.",
+      body: "Led by Teacher Henrique Cezar, a recognized authority with over two decades of experience in CFA exam preparation.",
     },
   ];
   return (
