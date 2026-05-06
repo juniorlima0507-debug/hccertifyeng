@@ -9,9 +9,10 @@ import {
   FileCheck2,
   Infinity as InfinityIcon,
   CheckCircle2,
-  ShieldCheck,
   BadgePercent,
 } from "lucide-react";
+import logo from "@/assets/logo.png";
+import professor from "@/assets/professor.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
