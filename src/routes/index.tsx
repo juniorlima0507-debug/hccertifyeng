@@ -17,13 +17,13 @@ import professor from "@/assets/professor.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "HCCP Prep — CFA® Level 1 Elite Preparation" },
+      { title: "HC Certify — CFA® Level 1 Elite Preparation" },
       {
         name: "description",
         content:
           "Master the CFA® Level 1 with an official prep provider. 80%+ first-attempt pass rate, led by Professor Henrique Cezar.",
       },
-      { property: "og:title", content: "HCCP Prep — CFA® Level 1 Elite Preparation" },
+      { property: "og:title", content: "HC Certify — CFA® Level 1 Elite Preparation" },
       {
         property: "og:description",
         content:
@@ -217,7 +217,7 @@ function Pillars() {
 
 function PassRateChart() {
   const bars = [
-    { label: "HCCP Prep Candidates", value: 80, accent: true },
+    { label: "HC Certify Candidates", value: 80, accent: true },
     { label: "Global Average (CFA L1)", value: 44, accent: false },
   ];
   return (
@@ -460,11 +460,11 @@ function Footer() {
             </span>
           </div>
           <p className="text-xs text-navy-foreground/60">
-            © {new Date().getFullYear()} HCCP Prep. All rights reserved.
+            © {new Date().getFullYear()} HC Certify. All rights reserved.
           </p>
         </div>
         <p className="mt-8 max-w-4xl text-xs leading-relaxed text-navy-foreground/60">
-          CFA Institute does not endorse, promote, or warrant the accuracy or quality of HCCP Prep.
+          CFA Institute does not endorse, promote, or warrant the accuracy or quality of HC Certify.
           CFA® and Chartered Financial Analyst® are registered trademarks owned by CFA Institute.
         </p>
       </div>
