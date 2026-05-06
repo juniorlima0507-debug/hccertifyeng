@@ -54,16 +54,16 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.04 260);
 
-  /* Deep Navy #001F3F */
-  --navy: oklch(0.22 0.07 255);
+  /* Deep Blue #00259b */
+  --navy: oklch(0.32 0.20 268);
   --navy-foreground: oklch(0.98 0.005 240);
 
-  --primary: oklch(0.22 0.07 255);
+  --primary: oklch(0.32 0.20 268);
   --primary-foreground: oklch(0.98 0.005 240);
 
-  /* Brushed Gold #D4AF37 */
-  --gold: oklch(0.78 0.13 85);
-  --gold-foreground: oklch(0.18 0.04 260);
+  /* Vivid Green #0ba40b */
+  --gold: oklch(0.62 0.22 142);
+  --gold-foreground: oklch(0.99 0.005 240);
 
   --secondary: oklch(0.96 0.008 250);
   --secondary-foreground: oklch(0.22 0.07 255);
