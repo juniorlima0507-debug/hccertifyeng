@@ -9,20 +9,21 @@ import {
   FileCheck2,
   Infinity as InfinityIcon,
   CheckCircle2,
-  ShieldCheck,
   BadgePercent,
 } from "lucide-react";
+import logo from "@/assets/logo.png";
+import professor from "@/assets/professor.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "HCCP Prep — CFA® Level 1 Elite Preparation" },
+      { title: "HC Certify — CFA® Level 1 Elite Preparation" },
       {
         name: "description",
         content:
           "Master the CFA® Level 1 with an official prep provider. 80%+ first-attempt pass rate, led by Professor Henrique Cezar.",
       },
-      { property: "og:title", content: "HCCP Prep — CFA® Level 1 Elite Preparation" },
+      { property: "og:title", content: "HC Certify — CFA® Level 1 Elite Preparation" },
       {
         property: "og:description",
         content:
@@ -43,12 +44,57 @@ const formSchema = z.object({
     .max(25, "Phone number too long"),
 });
 
+function Professor() {
+  return (
+    <section className="bg-background py-24">
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2 md:items-center">
+        <div className="relative">
+          <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-gold/30 to-navy/20 blur-2xl" />
+          <img
+            src={professor}
+            alt="Professor Henrique Cezar, CFA"
+            className="relative w-full rounded-2xl object-cover shadow-elegant"
+          />
+        </div>
+        <div>
+          <div className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
+            Lead Instructor
+          </div>
+          <h2 className="mt-3 font-display text-3xl font-bold text-navy md:text-4xl">
+            Professor Henrique Cezar, <span className="text-gold">CFA®</span>
+          </h2>
+          <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+            With over two decades preparing analysts and portfolio managers for
+            the CFA Program, Professor Henrique Cezar has built a reputation for
+            translating dense curriculum content into a precise, exam-winning
+            framework — the same framework that drives our 80%+ first-attempt
+            pass rate.
+          </p>
+          <ul className="mt-8 space-y-3 text-sm">
+            {[
+              "20+ years of CFA exam preparation experience",
+              "Trained candidates across global investment banks",
+              "Architect of the HC Certify methodology",
+            ].map((t) => (
+              <li key={t} className="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
+                <span className="text-foreground/90">{t}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function LandingPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       <Hero />
       <Methodology />
+      <Professor />
       <Pillars />
       <PassRateChart />
       <Offer />
@@ -62,10 +108,10 @@ function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-navy/95 backdrop-blur supports-[backdrop-filter]:bg-navy/80">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <div className="flex items-center gap-2">
-          <ShieldCheck className="h-6 w-6 text-gold" />
+        <div className="flex items-center gap-2.5">
+          <img src={logo} alt="HC Certify" className="h-9 w-9" />
           <span className="font-display text-lg font-bold tracking-tight text-navy-foreground">
-            HCCP <span className="text-gold">Prep</span>
+            HC <span className="text-gold">Certify</span>
           </span>
         </div>
         <a
@@ -216,7 +262,7 @@ function Pillars() {
 
 function PassRateChart() {
   const bars = [
-    { label: "HCCP Prep Candidates", value: 80, accent: true },
+    { label: "HC Certify Candidates", value: 80, accent: true },
     { label: "Global Average (CFA L1)", value: 44, accent: false },
   ];
   return (
@@ -452,18 +498,18 @@ function Footer() {
     <footer className="border-t border-border bg-navy py-12 text-navy-foreground">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="h-5 w-5 text-gold" />
+          <div className="flex items-center gap-2.5">
+            <img src={logo} alt="HC Certify" className="h-7 w-7" />
             <span className="font-display font-bold">
-              HCCP <span className="text-gold">Prep</span>
+              HC <span className="text-gold">Certify</span>
             </span>
           </div>
           <p className="text-xs text-navy-foreground/60">
-            © {new Date().getFullYear()} HCCP Prep. All rights reserved.
+            © {new Date().getFullYear()} HC Certify. All rights reserved.
           </p>
         </div>
         <p className="mt-8 max-w-4xl text-xs leading-relaxed text-navy-foreground/60">
-          CFA Institute does not endorse, promote, or warrant the accuracy or quality of HCCP Prep.
+          CFA Institute does not endorse, promote, or warrant the accuracy or quality of HC Certify.
           CFA® and Chartered Financial Analyst® are registered trademarks owned by CFA Institute.
         </p>
       </div>
