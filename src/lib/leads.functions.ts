@@ -26,7 +26,7 @@ export const saveLead = createServerFn({ method: "POST" })
     };
 
     // Ensure header row exists
-    const range = `${SHEET_NAME}!A1:D1`;
+    const range = `${SHEET_NAME}!A1:E1`;
     const headerCheck = await fetch(
       `${GATEWAY_URL}/spreadsheets/${SPREADSHEET_ID}/values/${range}`,
       { headers },
@@ -42,7 +42,7 @@ export const saveLead = createServerFn({ method: "POST" })
           method: "PUT",
           headers,
           body: JSON.stringify({
-            values: [["Timestamp", "Full Name", "Email", "Phone"]],
+            values: [["Date", "Time", "Full Name", "Email", "Phone"]],
           }),
         },
       );
@@ -51,14 +51,30 @@ export const saveLead = createServerFn({ method: "POST" })
       }
     }
 
-    const appendRange = `${SHEET_NAME}!A:D`;
+    const now = new Date();
+    const tz = "America/Sao_Paulo";
+    const dateStr = new Intl.DateTimeFormat("en-CA", {
+      timeZone: tz,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(now);
+    const timeStr = new Intl.DateTimeFormat("en-GB", {
+      timeZone: tz,
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    }).format(now);
+
+    const appendRange = `${SHEET_NAME}!A:E`;
     const res = await fetch(
       `${GATEWAY_URL}/spreadsheets/${SPREADSHEET_ID}/values/${appendRange}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
       {
         method: "POST",
         headers,
         body: JSON.stringify({
-          values: [[new Date().toISOString(), data.fullName, data.email, data.phone]],
+          values: [[dateStr, timeStr, data.fullName, data.email, data.phone]],
         }),
       },
     );
