@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import {
   Award,
@@ -13,6 +14,7 @@ import {
 } from "lucide-react";
 import logo from "@/assets/logo.png";
 import professor from "@/assets/professor.jpg";
+import { saveLead } from "@/lib/leads.functions";
 
 export const Route = createFileRoute("/")({
   head: () => ({
