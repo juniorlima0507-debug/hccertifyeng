@@ -338,6 +338,8 @@ function LeadForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const saveLeadFn = useServerFn(saveLead);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -357,10 +359,17 @@ function LeadForm() {
       return;
     }
     setErrors({});
+    setSubmitError(null);
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 700));
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      await saveLeadFn({ data: parsed.data });
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      setSubmitError("We couldn't submit your request. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
