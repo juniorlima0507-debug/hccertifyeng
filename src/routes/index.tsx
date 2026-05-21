@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import {
   Award,
@@ -13,6 +14,7 @@ import {
 } from "lucide-react";
 import logo from "@/assets/logo.png";
 import professor from "@/assets/professor.jpg";
+import { saveLead } from "@/lib/leads.functions";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -336,6 +338,8 @@ function LeadForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const saveLeadFn = useServerFn(saveLead);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -355,10 +359,17 @@ function LeadForm() {
       return;
     }
     setErrors({});
+    setSubmitError(null);
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 700));
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      await saveLeadFn({ data: parsed.data });
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      setSubmitError("We couldn't submit your request. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -426,6 +437,9 @@ function LeadForm() {
               >
                 {loading ? "Sending…" : "Get My Roadmap & Discount"}
               </button>
+              {submitError && (
+                <p className="text-center text-xs text-destructive">{submitError}</p>
+              )}
               <p className="text-center text-xs text-muted-foreground">
                 Your information is confidential and never shared.
               </p>
