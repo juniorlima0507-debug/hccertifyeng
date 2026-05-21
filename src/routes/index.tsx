@@ -437,6 +437,9 @@ function LeadForm() {
               >
                 {loading ? "Sending…" : "Get My Roadmap & Discount"}
               </button>
+              {submitError && (
+                <p className="text-center text-xs text-destructive">{submitError}</p>
+              )}
               <p className="text-center text-xs text-muted-foreground">
                 Your information is confidential and never shared.
               </p>
