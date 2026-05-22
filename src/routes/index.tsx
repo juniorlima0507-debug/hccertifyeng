@@ -44,6 +44,9 @@ const formSchema = z.object({
     .trim()
     .min(7, "Enter a valid phone number")
     .max(25, "Phone number too long"),
+  level: z.enum(["CFA Level 01", "CFA Level 02", "CFA Level 03"], {
+    message: "Please select a CFA level",
+  }),
 });
 
 function Professor() {
@@ -348,6 +351,7 @@ function LeadForm() {
       fullName: String(formData.get("fullName") ?? ""),
       email: String(formData.get("email") ?? ""),
       phone: String(formData.get("phone") ?? ""),
+      level: String(formData.get("level") ?? ""),
     };
     const parsed = formSchema.safeParse(data);
     if (!parsed.success) {
@@ -430,6 +434,30 @@ function LeadForm() {
                 autoComplete="tel"
                 error={errors.phone}
               />
+              <div>
+                <span className="mb-2 block text-sm font-medium text-navy">
+                  CFA Level of Interest
+                </span>
+                <div className="grid gap-2 sm:grid-cols-3">
+                  {["CFA Level 01", "CFA Level 02", "CFA Level 03"].map((lvl) => (
+                    <label
+                      key={lvl}
+                      className="flex cursor-pointer items-center gap-2 rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground transition hover:border-gold has-[:checked]:border-gold has-[:checked]:bg-gold/5"
+                    >
+                      <input
+                        type="radio"
+                        name="level"
+                        value={lvl}
+                        className="h-4 w-4 accent-gold"
+                      />
+                      <span>{lvl}</span>
+                    </label>
+                  ))}
+                </div>
+                {errors.level && (
+                  <p className="mt-1.5 text-xs text-destructive">{errors.level}</p>
+                )}
+              </div>
               <button
                 type="submit"
                 disabled={loading}
