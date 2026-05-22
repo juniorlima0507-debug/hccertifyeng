@@ -44,6 +44,9 @@ const formSchema = z.object({
     .trim()
     .min(7, "Enter a valid phone number")
     .max(25, "Phone number too long"),
+  level: z.enum(["CFA Level 01", "CFA Level 02", "CFA Level 03"], {
+    message: "Please select a CFA level",
+  }),
 });
 
 function Professor() {
