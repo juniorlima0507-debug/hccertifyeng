@@ -351,6 +351,7 @@ function LeadForm() {
       fullName: String(formData.get("fullName") ?? ""),
       email: String(formData.get("email") ?? ""),
       phone: String(formData.get("phone") ?? ""),
+      level: String(formData.get("level") ?? ""),
     };
     const parsed = formSchema.safeParse(data);
     if (!parsed.success) {
