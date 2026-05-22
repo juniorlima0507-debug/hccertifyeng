@@ -53,12 +53,12 @@ export const saveLead = createServerFn({ method: "POST" })
 
     const now = new Date();
     const tz = "America/Sao_Paulo";
-    const dateStr = new Intl.DateTimeFormat("en-CA", {
+    const dateStr = new Intl.DateTimeFormat("en-GB", {
       timeZone: tz,
       year: "numeric",
       month: "2-digit",
       day: "2-digit",
-    }).format(now);
+    }).format(now).replace(/\//g, "-");
     const timeStr = new Intl.DateTimeFormat("en-GB", {
       timeZone: tz,
       hour: "2-digit",
