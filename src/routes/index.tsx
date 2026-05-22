@@ -120,7 +120,7 @@ function Header() {
           href="#enroll"
           className="inline-flex items-center justify-center rounded-md bg-gold px-4 py-2 text-sm font-semibold text-gold-foreground shadow-gold transition hover:brightness-110"
         >
-          Secure Enrollment
+          Request a Demo
         </a>
       </div>
     </header>
@@ -150,7 +150,7 @@ function Hero() {
               href="#enroll"
               className="inline-flex items-center justify-center rounded-md bg-gold px-7 py-3.5 text-base font-semibold text-gold-foreground shadow-gold transition hover:brightness-110"
             >
-              Secure Enrollment
+              Request a Demo
             </a>
             <a
               href="#methodology"
@@ -327,7 +327,7 @@ function Offer() {
           href="#enroll"
           className="inline-flex items-center justify-center rounded-md bg-gold px-6 py-3 text-sm font-semibold text-gold-foreground shadow-gold transition hover:brightness-110"
         >
-          Claim Discount
+          Request a Demo
         </a>
       </div>
     </section>
