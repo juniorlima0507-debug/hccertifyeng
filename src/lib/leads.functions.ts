@@ -43,7 +43,7 @@ export const saveLead = createServerFn({ method: "POST" })
           method: "PUT",
           headers,
           body: JSON.stringify({
-            values: [["Date", "Time", "Full Name", "Email", "Phone"]],
+            values: [["Date", "Time", "Full Name", "Email", "Phone", "Level"]],
           }),
         },
       );
