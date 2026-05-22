@@ -9,6 +9,7 @@ const leadSchema = z.object({
   fullName: z.string().trim().min(2).max(100),
   email: z.string().trim().email().max(255),
   phone: z.string().trim().min(7).max(25),
+  level: z.enum(["CFA Level 01", "CFA Level 02", "CFA Level 03"]),
 });
 
 export const saveLead = createServerFn({ method: "POST" })
