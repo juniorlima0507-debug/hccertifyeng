@@ -68,14 +68,14 @@ export const saveLead = createServerFn({ method: "POST" })
       hour12: false,
     }).format(now);
 
-    const appendRange = `${SHEET_NAME}!A:E`;
+    const appendRange = `${SHEET_NAME}!A:F`;
     const res = await fetch(
       `${GATEWAY_URL}/spreadsheets/${SPREADSHEET_ID}/values/${appendRange}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
       {
         method: "POST",
         headers,
         body: JSON.stringify({
-          values: [[dateStr, timeStr, data.fullName, data.email, data.phone]],
+          values: [[dateStr, timeStr, data.fullName, data.email, data.phone, data.level]],
         }),
       },
     );
