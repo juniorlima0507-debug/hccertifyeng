@@ -27,7 +27,7 @@ export const saveLead = createServerFn({ method: "POST" })
     };
 
     // Ensure header row exists
-    const range = `${SHEET_NAME}!A1:E1`;
+    const range = `${SHEET_NAME}!A1:F1`;
     const headerCheck = await fetch(
       `${GATEWAY_URL}/spreadsheets/${SPREADSHEET_ID}/values/${range}`,
       { headers },
