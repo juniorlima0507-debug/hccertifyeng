@@ -11,6 +11,7 @@ import {
   Infinity as InfinityIcon,
   CheckCircle2,
   BadgePercent,
+  Linkedin,
 } from "lucide-react";
 import logo from "@/assets/logo.png";
 import professor from "@/assets/professor.jpg";
@@ -100,12 +101,45 @@ function LandingPage() {
       <Hero />
       <Methodology />
       <Professor />
+      <LinkedInSpotlight />
       <Pillars />
       <PassRateChart />
       <Offer />
       <LeadForm />
       <Footer />
     </div>
+  );
+}
+
+function LinkedInSpotlight() {
+  return (
+    <section className="relative overflow-hidden bg-gradient-to-br from-navy via-navy to-[#0a1a3a] py-24 text-navy-foreground">
+      <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-gold/20 blur-3xl" />
+      <div className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-[#0A66C2]/30 blur-3xl" />
+      <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-8 px-6 text-center">
+        <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-gold">
+          <Linkedin className="h-3.5 w-3.5" />
+          Professional Network
+        </div>
+        <h2 className="font-display text-3xl font-bold leading-tight md:text-5xl">
+          Connect with <span className="text-gold">Teacher Henrique Cezar</span> on LinkedIn
+        </h2>
+        <p className="max-w-2xl text-base text-navy-foreground/80 md:text-lg">
+          Explore two decades of finance leadership, CFA mentorship, and an MBA-backed career
+          trajectory — directly from his professional profile.
+        </p>
+        <a
+          href="https://www.linkedin.com/in/henrique-cezar-cfa-mba-9413ba46/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center gap-3 rounded-md bg-[#0A66C2] px-8 py-4 text-base font-semibold text-white shadow-elegant transition hover:brightness-110"
+        >
+          <Linkedin className="h-5 w-5" />
+          View LinkedIn Profile
+          <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+        </a>
+      </div>
+    </section>
   );
 }
 
